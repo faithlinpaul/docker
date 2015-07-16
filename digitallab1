@@ -1,0 +1,240 @@
+login as: fpaul
+fpaul@176.23.22.185's password:
+Last login: Thu Jul 16 11:39:10 2015 from 176.23.22.183
+[fpaul@digitalpc5 ~]$ sudo su -
+[root@digitalpc5 ~]# ^C
+[root@digitalpc5 ~]# ^C
+[root@digitalpc5 ~]# logout
+[fpaul@digitalpc5 ~]$ ll
+total 0
+[fpaul@digitalpc5 ~]$ mkdi^C
+[fpaul@digitalpc5 ~]$ pwd
+/home/fpaul
+[fpaul@digitalpc5 ~]$ mkdir consul
+[fpaul@digitalpc5 ~]$ cd consul/
+[fpaul@digitalpc5 consul]$ git
+usage: git [--version] [--exec-path[=GIT_EXEC_PATH]] [--html-path]
+           [-p|--paginate|--no-pager] [--no-replace-objects]
+           [--bare] [--git-dir=GIT_DIR] [--work-tree=GIT_WORK_TREE]
+           [--help] COMMAND [ARGS]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   bisect     Find by binary search the change that introduced a bug
+   branch     List, create, or delete branches
+   checkout   Checkout a branch or paths to the working tree
+   clone      Clone a repository into a new directory
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   fetch      Download objects and refs from another repository
+   grep       Print lines matching a pattern
+   init       Create an empty git repository or reinitialize an existing one
+   log        Show commit logs
+   merge      Join two or more development histories together
+   mv         Move or rename a file, a directory, or a symlink
+   pull       Fetch from and merge with another repository or a local branch
+   push       Update remote refs along with associated objects
+   rebase     Forward-port local commits to the updated upstream head
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+   show       Show various types of objects
+   status     Show the working tree status
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+See 'git help COMMAND' for more information on a specific command.
+[fpaul@digitalpc5 consul]$ cls
+-bash: cls: command not found
+[fpaul@digitalpc5 consul]$ clear
+[fpaul@digitalpc5 consul]$ git clone https://github.com/gliderlabs/docker-consul.git
+Initialized empty Git repository in /home/fpaul/consul/docker-consul/.git/
+remote: Counting objects: 246, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 246 (delta 0), reused 0 (delta 0), pack-reused 243
+Receiving objects: 100% (246/246), 47.21 KiB, done.
+Resolving deltas: 100% (111/111), done.
+[fpaul@digitalpc5 consul]$ ll
+total 4
+drwxr-xr-x. 4 fpaul fpaul 4096 Jul 16 12:01 docker-consul
+[fpaul@digitalpc5 consul]$ cd docker-consul/
+[fpaul@digitalpc5 docker-consul]$ ll
+total 20
+drwxrwxr-x. 5 fpaul fpaul 4096 Jul 16 12:01 0.5
+-rw-rw-r--. 1 fpaul fpaul 1078 Jul 16 12:01 LICENSE
+-rw-rw-r--. 1 fpaul fpaul   69 Jul 16 12:01 Makefile
+-rw-rw-r--. 1 fpaul fpaul  199 Jul 16 12:01 README.md
+-rw-rw-r--. 1 fpaul fpaul   73 Jul 16 12:01 SPONSORS
+[fpaul@digitalpc5 docker-consul]$ less Makefile
+[fpaul@digitalpc5 docker-consul]$ mak
+make          makedeltarpm  makedumpfile  makeindex     makempx       makewhatis    mako-render
+[fpaul@digitalpc5 docker-consul]$ make ^C
+[fpaul@digitalpc5 docker-consul]$ cd 0.5/
+[fpaul@digitalpc5 0.5]$ ll
+total 12
+drwxrwxr-x. 2 fpaul fpaul 4096 Jul 16 12:01 consul
+drwxrwxr-x. 3 fpaul fpaul 4096 Jul 16 12:01 consul-agent
+drwxrwxr-x. 3 fpaul fpaul 4096 Jul 16 12:01 consul-server
+[fpaul@digitalpc5 0.5]$ make -C consul/
+Dockerfile  Makefile
+[fpaul@digitalpc5 0.5]$ make -C consul/
+Dockerfile  Makefile
+[fpaul@digitalpc5 0.5]$ make -C consul/^C
+[fpaul@digitalpc5 0.5]$ less consul/Makefile
+[fpaul@digitalpc5 0.5]$ cd consul
+[fpaul@digitalpc5 consul]$ make
+docker build -t gliderlabs/consul .
+Sending build context to Docker daemon
+FATA[0000] Post http:///var/run/docker.sock/v1.17/build?dockerfile=Dockerfile&rm=1&t=gliderlabs%2Fconsul: dial unix /var/run/docker.sock: permission denied
+make: *** [build] Error 1
+[fpaul@digitalpc5 consul]$ sudo su -
+[root@digitalpc5 ~]# cd ^C
+[root@digitalpc5 ~]# logout
+[fpaul@digitalpc5 consul]$ sudo make
+docker build -t gliderlabs/consul .
+Sending build context to Docker daemon 3.584 kB
+Sending build context to Docker daemon
+Step 0 : FROM alpine:3.2
+Pulling repository alpine
+31f630c65071: Download complete
+Status: Downloaded newer image for alpine:3.2
+ ---> 31f630c65071
+Step 1 : RUN apk --update add curl ca-certificates &&     curl -Ls https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk > /tmp/glibc-2.21-r2.apk &&     apk add --allow-untrusted /tmp/glibc-2.21-r2.apk &&     rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*
+ ---> Running in d15b38b412d6
+fetch http://dl-4.alpinelinux.org/alpine/v3.2/main/x86_64/APKINDEX.tar.gz
+(1/10) Installing run-parts (4.4-r0)
+(2/10) Installing openssl (1.0.2d-r0)
+ERROR: openssl-1.0.2d-r0: temporary error (try again later)
+(3/10) Installing lua5.2-libs (5.2.4-r0)
+(4/10) Installing lua5.2 (5.2.4-r0)
+(5/10) Installing ncurses-terminfo-base (5.9-r3)
+(6/10) Installing ncurses-widec-libs (5.9-r3)
+(7/10) Installing lua5.2-posix (33.3.1-r2)
+(8/10) Installing ca-certificates (20141019-r2)
+(9/10) Installing libssh2 (1.5.0-r0)
+(10/10) Installing curl (7.42.1-r0)
+Executing busybox-1.23.2-r0.trigger
+Executing ca-certificates-20141019-r2.trigger
+1 errors; 8 MiB in 24 packages
+INFO[0088] The command [/bin/sh -c apk --update add curl ca-certificates &&     curl -Ls https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk > /tmp/glibc-2.21-r2.apk &&     apk add --allow-untrusted /tmp/glibc-2.21-r2.apk &&     rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*] returned a non-zero code: 1
+make: *** [build] Error 1
+[fpaul@digitalpc5 consul]$ sudo make
+docker build -t gliderlabs/consul .
+Sending build context to Docker daemon 3.584 kB
+Sending build context to Docker daemon
+Step 0 : FROM alpine:3.2
+ ---> 31f630c65071
+Step 1 : RUN apk --update add curl ca-certificates &&     curl -Ls https://circle-artifacts.com/gh/andyshinn/alpine-pkg-glibc/6/artifacts/0/home/ubuntu/alpine-pkg-glibc/packages/x86_64/glibc-2.21-r2.apk > /tmp/glibc-2.21-r2.apk &&     apk add --allow-untrusted /tmp/glibc-2.21-r2.apk &&     rm -rf /tmp/glibc-2.21-r2.apk /var/cache/apk/*
+ ---> Running in 6369625a9365
+fetch http://dl-4.alpinelinux.org/alpine/v3.2/main/x86_64/APKINDEX.tar.gz
+(1/10) Installing run-parts (4.4-r0)
+(2/10) Installing openssl (1.0.2d-r0)
+(3/10) Installing lua5.2-libs (5.2.4-r0)
+(4/10) Installing lua5.2 (5.2.4-r0)
+(5/10) Installing ncurses-terminfo-base (5.9-r3)
+(6/10) Installing ncurses-widec-libs (5.9-r3)
+(7/10) Installing lua5.2-posix (33.3.1-r2)
+(8/10) Installing ca-certificates (20141019-r2)
+(9/10) Installing libssh2 (1.5.0-r0)
+(10/10) Installing curl (7.42.1-r0)
+Executing busybox-1.23.2-r0.trigger
+Executing ca-certificates-20141019-r2.trigger
+OK: 9 MiB in 25 packages
+(1/2) Installing libgcc (4.9.2-r5)
+(2/2) Installing glibc (2.21-r2)
+Executing glibc-2.21-r2.post-install
+OK: 14 MiB in 27 packages
+ ---> 438328cfa6b5
+Removing intermediate container 6369625a9365
+Step 2 : ADD https://dl.bintray.com/mitchellh/consul/0.5.2_linux_amd64.zip /tmp/consul.zip
+Downloading [==================================================>] 4.804 MB/4.804 MB
+ ---> 032674fc2707
+Removing intermediate container 2e84c6d65776
+Step 3 : RUN cd /bin && unzip /tmp/consul.zip && chmod +x /bin/consul && rm /tmp/consul.zip
+ ---> Running in b99c8d0ab4a3
+Archive:  /tmp/consul.zip
+  inflating: consul
+ ---> f827be9d22d5
+Removing intermediate container b99c8d0ab4a3
+Step 4 : ENTRYPOINT /bin/consul
+ ---> Running in 28d35aad606a
+ ---> 088203a87cd1
+Removing intermediate container 28d35aad606a
+Successfully built 088203a87cd1
+[fpaul@digitalpc5 consul]$ docker
+Dockerfile  Makefile
+[fpaul@digitalpc5 consul]$ ^Ccker
+[fpaul@digitalpc5 consul]$ cd ..
+[fpaul@digitalpc5 0.5]$ cd consul-server/
+[fpaul@digitalpc5 consul-server]$ make
+docker build -t gliderlabs/consul-server .
+Sending build context to Docker daemon
+FATA[0000] Post http:///var/run/docker.sock/v1.17/build?dockerfile=Dockerfile&rm=1&t=gliderlabs%2Fconsul-server: dial unix /var/run/docker.sock: permission denied
+make: *** [build] Error 1
+[fpaul@digitalpc5 consul-server]$ sudo  make
+docker build -t gliderlabs/consul-server .
+Sending build context to Docker daemon 4.608 kB
+Sending build context to Docker daemon
+Step 0 : FROM gliderlabs/consul:0.5
+Pulling repository gliderlabs/consul
+3500509da6dd: Download complete
+31f630c65071: Download complete
+59f82a5dff67: Download complete
+9b704a605205: Download complete
+8ed05340d4bb: Download complete
+Status: Downloaded newer image for gliderlabs/consul:0.5
+ ---> 3500509da6dd
+Step 1 : ADD ./config /config/
+ ---> b12d93313194
+Removing intermediate container 3402180105ba
+Step 2 : ADD https://dl.bintray.com/mitchellh/consul/0.5.2_web_ui.zip /tmp/webui.zip
+Downloading [==================================================>] 252.6 kB/252.6 kB
+ ---> 636f753f0e28
+Removing intermediate container b6ada78d6270
+Step 3 : RUN cd /tmp && unzip webui.zip && mv dist /ui && rm webui.zip
+ ---> Running in 956126b65a09
+Archive:  webui.zip
+   creating: dist/
+  inflating: dist/.gitkeep
+  inflating: dist/index.html
+   creating: dist/static/
+  inflating: dist/static/application.min.js
+  inflating: dist/static/base.css
+  inflating: dist/static/base.css.map
+  inflating: dist/static/bootstrap.min.css
+  inflating: dist/static/consul-logo.png
+  inflating: dist/static/favicon.png
+  inflating: dist/static/loading-cylon-purple.svg
+ ---> 379fee738e37
+Removing intermediate container 956126b65a09
+Step 4 : ENTRYPOINT /bin/consul agent -server -config-dir=/config
+ ---> Running in f7b028bd6123
+ ---> c1412bfa708b
+Removing intermediate container f7b028bd6123
+Successfully built c1412bfa708b
+[fpaul@digitalpc5 consul-server]$ cd ../consul-agent/
+[fpaul@digitalpc5 consul-agent]$ sudo make
+docker build -t gliderlabs/consul-agent .
+Sending build context to Docker daemon 4.608 kB
+Sending build context to Docker daemon
+Step 0 : FROM gliderlabs/consul:0.5
+ ---> 3500509da6dd
+Step 1 : ADD ./config /config/
+ ---> 0da9c4e8c0a7
+Removing intermediate container 15d2b925caa9
+Step 2 : EXPOSE 8300 8301 8301/udp 8302 8302/udp 8400 8500 8600 8600/udp
+ ---> Running in 052b681e517b
+ ---> cd51d753c57b
+Removing intermediate container 052b681e517b
+Step 3 : ENV DNS_RESOLVES consul
+ ---> Running in 0fa5e4757994
+ ---> 889373381c1d
+Removing intermediate container 0fa5e4757994
+Step 4 : ENV DNS_PORT 8600
+ ---> Running in 56c7891bfc50
+ ---> 00fb90a1c22f
+Removing intermediate container 56c7891bfc50
+Step 5 : ENTRYPOINT /bin/consul agent -config-dir=/config
+ ---> Running in d1ce8334e73a
+ ---> 8ca047d5e025
+Removing intermediate container d1ce8334e73a
+Successfully built 8ca047d5e025
+[fpaul@digitalpc5 consul-agent]$ sudo make
