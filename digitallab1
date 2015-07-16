@@ -238,3 +238,15 @@ Step 5 : ENTRYPOINT /bin/consul agent -config-dir=/config
 Removing intermediate container d1ce8334e73a
 Successfully built 8ca047d5e025
 [fpaul@digitalpc5 consul-agent]$ sudo make
+
+[fpaul@digitalpc5 consul-agent]$ sudo netstat -anp  | grep consu
+tcp        0      0 127.0.0.1:8400              0.0.0.0:*                   LISTEN      2180/consul
+tcp        0      0 127.0.0.1:8500              0.0.0.0:*                   LISTEN      2180/consul
+tcp        0      0 127.0.0.1:8600              0.0.0.0:*                   LISTEN      2180/consul
+tcp        0      0 :::8300                     :::*                        LISTEN      2180/consul
+tcp        0      0 :::8301                     :::*                        LISTEN      2180/consul
+tcp        0      0 :::8302                     :::*                        LISTEN      2180/consul
+udp        0      0 127.0.0.1:8600              0.0.0.0:*                               2180/consul
+udp        0      0 :::8301                     :::*                                    2180/consul
+udp        0      0 :::8302                     :::*                                    2180/consul
+
